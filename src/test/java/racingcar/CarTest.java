@@ -21,9 +21,12 @@ public class CarTest {
     Random random;
 
     @Test
-    @DisplayName("자동차의 시작 위치는 0이다")
+    @DisplayName("자동차의 초기 상태 검사")
     void initPosition() {
-        assertThat(new Car().getPosition()).isEqualTo(0);
+        String name = "테스트이름";
+        assertThat(new Car(name))
+                .hasFieldOrPropertyWithValue("name", name)
+                .hasFieldOrPropertyWithValue("position", 0);
     }
 
     @Test
@@ -32,7 +35,7 @@ public class CarTest {
         when(random.nextInt(anyInt()))
                 .thenReturn(9);
 
-        Car car = new Car(random);
+        Car car = new Car("테스트이름", random);
         car.go();
 
         assertThat(car.getPosition()).isEqualTo(1);
@@ -44,7 +47,7 @@ public class CarTest {
         when(random.nextInt(anyInt()))
                 .thenReturn(0);
 
-        Car car = new Car(random);
+        Car car = new Car("테스트이름", random);
         car.go();
 
         assertThat(car.getPosition()).isEqualTo(0);
@@ -57,7 +60,7 @@ public class CarTest {
         when(random.nextInt(anyInt()))
                 .thenReturn(9);
 
-        Car car = new Car(random);
+        Car car = new Car("테스트이름", random);
         for (int i = 0; i < repeat; i++) {
             car.go();
         }

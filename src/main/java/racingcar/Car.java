@@ -3,14 +3,16 @@ package racingcar;
 import java.util.Random;
 
 public class Car {
+    private final String name;
     private final Random random;
     private int position = 0;
 
-    public Car() {
-        this.random = new Random();
+    public Car(String name) {
+        this(name, new Random());
     }
 
-    public Car(Random random) {
+    public Car(String name, Random random) {
+        this.name = name;
         this.random = random;
     }
 
@@ -19,7 +21,7 @@ public class Car {
     }
 
     public void print() {
-        ResultView.printCarPosition(position);
+        ResultView.printCarPosition(name, position);
     }
 
     public void go() {

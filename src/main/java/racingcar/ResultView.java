@@ -4,7 +4,8 @@ import java.util.List;
 
 public class ResultView {
 
-    public static void printCarPosition(int position) {
+    public static void printCarPosition(String name, int position) {
+        print(name + " : ");
         for (int i = 0; i < position; i++) {
             print("-");
         }

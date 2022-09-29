@@ -7,15 +7,15 @@ public class Game {
     private final int repeat;
     private List<Car> cars;
 
-    public Game(int count, int repeat) {
+    public Game(String[] names, int repeat) {
         this.repeat = repeat;
-        initCars(count);
+        initCars(names);
     }
 
-    private void initCars(int count) {
+    private void initCars(String[] names) {
         List<Car> cars = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            cars.add(new Car());
+        for (String name : names) {
+            cars.add(new Car(name));
         }
         this.cars = cars;
     }
