@@ -21,7 +21,7 @@ public class GameTest {
     @Test
     @DisplayName("실제 게임을 실행해 테스트한다")
     void test() {
-        String[] names = {"자동차1", "자동차2"};
+        String[] names = {"자동차1", "자동차2", "자동차3", "자동차4"};
 
         Game game = new Game(names, 5);
 

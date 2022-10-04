@@ -16,6 +16,10 @@ public class Car {
         this.random = random;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getPosition() {
         return position;
     }
