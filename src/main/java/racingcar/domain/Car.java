@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.domain;
+
+import racingcar.view.ResultView;
 
 import java.util.Random;
 

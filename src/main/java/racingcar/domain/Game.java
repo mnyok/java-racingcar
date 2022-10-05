@@ -1,4 +1,7 @@
-package racingcar;
+package racingcar.domain;
+
+import racingcar.view.InputView;
+import racingcar.view.ResultView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +10,14 @@ import java.util.stream.Collectors;
 public class Game {
     private final int repeat;
     private List<Car> cars;
+
+    public Game() {
+        String[] names = InputView.requestInputNames();
+        this.repeat = InputView.requestInputRepeat();
+        ResultView.println();
+
+        initCars(names);
+    }
 
     public Game(String[] names, int repeat) {
         this.repeat = repeat;
