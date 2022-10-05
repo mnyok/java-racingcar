@@ -1,22 +1,12 @@
 package racingcar.view;
 
-import racingcar.domain.Car;
-
 import java.util.List;
 
 public class ResultView {
 
-    public static void printCarPosition(String name, int position) {
-        print(name + " : ");
-        for (int i = 0; i < position; i++) {
-            print("-");
-        }
-        println();
-    }
-
-    public static void printRoundResult(List<Car> cars) {
-        for (Car car: cars) {
-            car.print();
+    public static void printRoundResult(List<LaneView> lanes) {
+        for (LaneView lane: lanes) {
+            lane.print();
         }
 
         println();

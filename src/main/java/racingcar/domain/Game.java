@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.view.InputView;
+import racingcar.view.LaneView;
 import racingcar.view.ResultView;
 
 import java.util.ArrayList;
@@ -47,7 +48,10 @@ public class Game {
     }
 
     private void print() {
-        ResultView.printRoundResult(cars);
+        List<LaneView> lanes = cars.stream()
+                .map(car -> new LaneView(car.getName(), car.getPosition()))
+                .collect(Collectors.toList());
+        ResultView.printRoundResult(lanes);
     }
 
     private void printWinner() {
@@ -66,7 +70,7 @@ public class Game {
 
     private int winnerPosition() {
         int max = 0;
-        for (Car car: cars) {
+        for (Car car : cars) {
             max = Math.max(car.getPosition(), max);
         }
         return max;

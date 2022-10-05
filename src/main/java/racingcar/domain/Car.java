@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import racingcar.view.ResultView;
-
 import java.util.Random;
 
 public class Car {
@@ -24,10 +22,6 @@ public class Car {
 
     public int getPosition() {
         return position;
-    }
-
-    public void print() {
-        ResultView.printCarPosition(name, position);
     }
 
     public void go() {
