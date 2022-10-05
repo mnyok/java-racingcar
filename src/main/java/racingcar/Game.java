@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Game {
     private final int repeat;
@@ -46,14 +47,10 @@ public class Game {
     private List<String> getWinnerNames() {
         int position = winnerPosition();
 
-        List<String> winnerNames = new ArrayList<>();
-        // TODO: 메소드 분리
-        for (Car car: cars) {
-            if (car.getPosition() == position) {
-                winnerNames.add(car.getName());
-            }
-        }
-        return winnerNames;
+        return cars.stream()
+                .filter(car -> car.getPosition() == position)
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     private int winnerPosition() {
