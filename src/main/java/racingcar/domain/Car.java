@@ -1,19 +1,17 @@
 package racingcar.domain;
 
-import java.util.Random;
-
 public class Car {
     private final String name;
-    private final Random random;
+    private final CarMoveDecider moveDecider;
     private int position = 0;
 
     public Car(String name) {
-        this(name, new Random());
+        this(name, new CarMoveDecider());
     }
 
-    public Car(String name, Random random) {
+    public Car(String name, CarMoveDecider moveDecider) {
         this.name = name;
-        this.random = random;
+        this.moveDecider = moveDecider;
     }
 
     public String getName() {
@@ -25,16 +23,12 @@ public class Car {
     }
 
     public void go() {
-        if (isMove()) {
+        if (moveDecider.decide()) {
             move();
         }
     }
 
     private void move() {
         this.position++;
-    }
-
-    private boolean isMove() {
-        return random.nextInt(10) > 3;
     }
 }
